@@ -15,9 +15,9 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 public class NuclearFusion {
-    static int universeSizeX = 100;
-    static int universeSizeY = 100;
-    static int universeSizeZ = 100;
+    static int universeSizeX = 60;
+    static int universeSizeY = 60;
+    static int universeSizeZ = 60;
 
     static final Group root = new Group();
     static final Group axisGroup = new Group();
@@ -28,7 +28,7 @@ public class NuclearFusion {
     static final Xform cameraXform3 = new Xform();
     static final double cameraDistance = 450;
     static final Xform moleculeGroup = new Xform();
-    private static final int START_PARTICLES = 500;
+    private static final int START_PARTICLES = 333;
     static private Timeline timeline;
     static boolean timelinePlaying = false;
     static double ONE_FRAME = 1.0 / 24.0;
@@ -174,8 +174,6 @@ public class NuclearFusion {
                 if (distance(s1, s2) < s1.getRadius() + s2.getRadius()) {
                     if (particle.getType().equals(p.getType())) {
                         System.out.println("Collided");
-                        particle.getSphere().setRadius(0);
-                        p.getSphere().setRadius(0);
                         p.removal = true;
                         particle.removal = true;
                         return true;

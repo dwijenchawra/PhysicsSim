@@ -5,9 +5,6 @@ import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 import javafx.scene.text.Text;
 
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
 public class ParticleWrapper {
     private Sphere sphere;
     private double speed;
@@ -55,22 +52,13 @@ public class ParticleWrapper {
                 Sphere sphere1 = new Sphere();
                 Sphere sphere2 = new Sphere();
                 molecule.getChildren().addAll(sphere1, sphere2);
-
             case DEUTERIUM:
         }
-
-        this.sphere = new Sphere(1, 4);
+        this.sphere = new Sphere(1, 32);
 
         sphere.setTranslateX(Math.random() * NuclearFusion.universeSizeX * getPolarity());
         sphere.setTranslateY(Math.random() * NuclearFusion.universeSizeY * getPolarity());
         sphere.setTranslateZ(Math.random() * NuclearFusion.universeSizeZ * getPolarity());
-
-
-//        System.out.println(this.color.toString());
-
-//        p.setDiffuseColor(Color.BLUE);
-//        p.setSpecularColor(Color.BLUE);
-
 
         sphere.setMaterial(p);
 
