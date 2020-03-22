@@ -75,12 +75,13 @@ public class NuclearFusion {
 
     private static boolean collisionChecker(ParticleWrapper p, ArrayList<ParticleWrapper> particles) {
         for (ParticleWrapper particle : particles) {
-            Sphere s1 = particle.getSphere();
-            Sphere s2 = p.getSphere();
+            Node s1 = particle.getSphere();
+            Node s2 = p.getSphere();
 //            System.out.println(distance(s1, s2));
 //            System.out.println(s1.getRadius() + s2.getRadius());
             if (!p.equals(particle)) {
-                if (distance(s1, s2) < 1 + 1) {
+//                if (distance(s1, s2) < 1 + 1) {
+                if (s1.getBoundsInParent().intersects(s2.getBoundsInParent())) {
                     if (particle.getType().equals(p.getType())) {
                         System.out.println("Collided");
                         p.removal = true;
