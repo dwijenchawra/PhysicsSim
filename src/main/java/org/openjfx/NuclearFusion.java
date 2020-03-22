@@ -83,7 +83,6 @@ public class NuclearFusion {
 //                if (distance(s1, s2) < 1 + 1) {
                 if (s1.getBoundsInParent().intersects(s2.getBoundsInParent())) {
                     if (particle.getType().equals(p.getType())) {
-                        //testing
                         System.out.println("Collided");
                         p.removal = true;
                         particle.removal = true;

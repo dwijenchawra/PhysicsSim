@@ -9,6 +9,7 @@ public class ParticleWrapper {
     private Sphere sphere;
     private double speed;
     private Particle type;
+    private ShapeType shapeType;
     private Color color;
     private Text t;
     public boolean removal;
@@ -54,9 +55,7 @@ public class ParticleWrapper {
                 p.setDiffuseColor(Color.SILVER);
                 break;
             case HYDROGEN:
-                Sphere sphere1 = new Sphere();
-                Sphere sphere2 = new Sphere();
-                molecule.getChildren().addAll(sphere1, sphere2);
+                generateComplexParticle(Particle.HYDROGEN);
             case DEUTERIUM:
         }
 
@@ -66,15 +65,22 @@ public class ParticleWrapper {
     private void generateOneSphere() {
         this.sphere = new Sphere(1, 32);
 
-        sphere.setTranslateX(Math.random() * NuclearFusion.universeSizeX * getPolarity());
-        sphere.setTranslateY(Math.random() * NuclearFusion.universeSizeY * getPolarity());
-        sphere.setTranslateZ(Math.random() * NuclearFusion.universeSizeZ * getPolarity());
+        sphere.setTranslateX((Math.random() * NuclearFusion.universeSizeX - 1) * getPolarity());
+        sphere.setTranslateY((Math.random() * NuclearFusion.universeSizeY - 1) * getPolarity());
+        sphere.setTranslateZ((Math.random() * NuclearFusion.universeSizeZ - 1) * getPolarity());
 
         sphere.setMaterial(p);
+
+        this.shapeType = ShapeType.SIMPLE;
     }
 
-    private void generateComplexParticle() {
+    private void generateComplexParticle(Particle type) {
+        switch (type) {
+            case HYDROGEN:
 
+        }
+
+        this.shapeType = ShapeType.COMPLEX;
     }
 
     private int getPolarity() {
