@@ -24,26 +24,31 @@ public class ParticleWrapper {
 
         switch (particle) {
             case ELECTRON:
+                generateOneSphere();
                 this.speed = 10;
                 p.setSpecularColor(Color.BLUE);
                 p.setDiffuseColor(Color.BLUE);
                 break;
             case GAMMA:
+                generateOneSphere();
                 this.speed = 20;
                 p.setSpecularColor(Color.YELLOW);
                 p.setDiffuseColor(Color.YELLOW);
                 break;
             case PROTON:
+                generateOneSphere();
                 this.speed = 5;
                 p.setSpecularColor(Color.RED);
                 p.setDiffuseColor(Color.RED);
                 break;
             case NEUTRON:
+                generateOneSphere();
                 this.speed = 5;
                 p.setSpecularColor(Color.GRAY);
                 p.setDiffuseColor(Color.GRAY);
                 break;
             case NEUTRINO:
+                generateOneSphere();
                 this.speed = 30;
                 p.setSpecularColor(Color.SILVER);
                 p.setDiffuseColor(Color.SILVER);
@@ -54,6 +59,11 @@ public class ParticleWrapper {
                 molecule.getChildren().addAll(sphere1, sphere2);
             case DEUTERIUM:
         }
+
+        this.speed /= 10;
+    }
+
+    private void generateOneSphere() {
         this.sphere = new Sphere(1, 32);
 
         sphere.setTranslateX(Math.random() * NuclearFusion.universeSizeX * getPolarity());
@@ -61,8 +71,10 @@ public class ParticleWrapper {
         sphere.setTranslateZ(Math.random() * NuclearFusion.universeSizeZ * getPolarity());
 
         sphere.setMaterial(p);
+    }
 
-        this.speed /= 10;
+    private void generateComplexParticle() {
+
     }
 
     private int getPolarity() {
